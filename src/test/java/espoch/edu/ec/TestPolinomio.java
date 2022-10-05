@@ -16,14 +16,6 @@ public class TestPolinomio {
         unPolinomio = null;
     }
 
-    @BeforeAll
-    public static void setUpClass() {
-    }
-
-    @AfterAll
-    public static void tearDownClass() {
-    }
-
     @Test
     public void CP1() {
         Exception exception = assertThrows(Exception.class, () -> {
