@@ -2,14 +2,14 @@ package espoch.edu.ec.raicespolinomio;
 
 public class Polinomio {
     
-    public double a;
-    public double b;
-    public double c;
-    public double delta;
-    public double x1;
-    public double x2;
+    public final float a;
+    public final float b;
+    public final float c;
+    public final float delta;
+    public final String x1;
+    public final String x2;
     
-    public Polinomio(double a, double b, double c) throws Exception {
+    public Polinomio(float a, float b, float c) throws Exception {  
         if (a == 0)
             throw new Exception("No es un polinomio de grado 2");
         
@@ -19,22 +19,17 @@ public class Polinomio {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.delta = (double) Math.pow(this.b,2)-(4*this.a*this.c);
-    }
-    
-    public void CalcularRaiz(){
+        this.delta = (float) Math.pow(this.b,2)-(4*this.a*this.c);
+        
         if(this.delta >= 0){
-            this.x1 = (double) (-b + Math.sqrt(this.delta))/(2*a);
-            this.x2 = (double) (-b - Math.sqrt(this.delta))/(2*a);
-            System.out.printf("x1 = %.2f ", x1);
-            System.out.printf("\nx2 = %.2f ", x2);
+            this.x1 = String.valueOf((-b + Math.sqrt(this.delta))/(2*a));
+            this.x2 = String.valueOf((-b - Math.sqrt(this.delta))/(2*a));
         }
         else {
-            double real = -b / (2*a);
-            double imaginario = Math.sqrt(-this.delta) / (2*a);
-            System.out.printf("x1 = %.2f+%.2fi", real, imaginario);
-            System.out.printf("\nx2 = %.2f-%.2fi", real, imaginario);
+            float real = -b / (2*a);
+            float imaginario = (float) Math.sqrt(-this.delta) / (2*a);
+            this.x1 = String.format("%.2f+(%.2fi)", real, imaginario);
+            this.x2 = String.format("%.2f-(%.2fi)", real, imaginario);
         }
-    } 
-    
+    }    
 }
